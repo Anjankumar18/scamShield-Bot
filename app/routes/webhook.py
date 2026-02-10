@@ -6,7 +6,7 @@ from app.db.mongo import messages_collection
 from app.models.message import create_message_doc
 
 from app.services.ai_engine import analyze_with_ai
-from app.services.nlp_engine import analyze_nlp
+# from app.services.nlp_engine import analyze_nlp
 from app.services.url_engine import extract_urls
 from app.services.url_reputation import scan_url
 from app.services.url_ai import analyze_url_ai
