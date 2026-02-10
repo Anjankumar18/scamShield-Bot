@@ -49,7 +49,7 @@ async def whatsapp_webhook(request: Request):
         # 3. NLP Analysis
         # -------------------------------
 
-        nlp_result = analyze_nlp(message)
+        # nlp_result = analyze_nlp(message)
 
         # -------------------------------
         # 4. URL Extraction
