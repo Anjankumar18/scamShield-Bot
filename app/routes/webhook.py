@@ -106,7 +106,6 @@ async def whatsapp_webhook(request: Request):
 
         final_risk = calculate_risk(
             ai_text=ai_text_result,
-            nlp=nlp_result,
             vt=vt_result,
             url_ai=url_ai_result
         )
@@ -121,7 +120,6 @@ async def whatsapp_webhook(request: Request):
                 "$set": {
                     "analyzed": True,
                     "ai_text": ai_text_result,
-                    "nlp": nlp_result,
                     "urls": urls,
                     "virustotal": vt_result,
                     "url_ai": url_ai_result,
