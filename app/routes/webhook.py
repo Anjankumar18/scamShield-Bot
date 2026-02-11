@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Request, HTTPException
-import requests
-import os
+from fastapi.responses import Response
 
 from twilio.twiml.messaging_response import MessagingResponse
 
@@ -165,7 +164,10 @@ Stay safe!
 
         resp.message(reply_text)
 
-        return str(resp)
+        return Response(
+            content=str(resp),
+            media_type="text/xml"
+        )
 
 
     except Exception as e:
@@ -178,4 +180,7 @@ Stay safe!
             "⚠️ ScamShield Error\n\nUnable to analyze message right now. Please try again later."
         )
 
-        return str(resp)
+        return Response(
+            content=str(resp),
+            media_type="text/xml"
+        )
