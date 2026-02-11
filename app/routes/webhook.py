@@ -10,6 +10,7 @@ from app.models.message import create_message_doc
 from app.services.ai_engine import analyze_with_ai
 from app.services.url_engine import extract_urls
 from app.services.scoring import calculate_risk
+from app.services.hf_url_ai import analyze_url_hf
 
 
 router = APIRouter()
@@ -19,29 +20,30 @@ router = APIRouter()
 # HuggingFace API Config
 # -------------------------------
 
-HF_API_URL = os.getenv("HF_API_URL")
+# HF_API_URL = os.getenv("HF_API_URL")
 
 
-def analyze_url_hf(url: str):
-    if not HF_API_URL:
-        raise Exception("HF_API_URL not set")
+# def analyze_url_hf(url: str):
+#     if not HF_API_URL:
+#         raise Exception("HF_API_URL not set")
 
-    payload = {
-        "data": [url]
-    }
+#     payload = {
+#         "data": [url]
+#     }
+#     print(HF_API_URL,"---url")
+#     print(payload,"----payload")
+#     res = requests.post(
+#         HF_API_URL,
+#         json=payload,
+#         timeout=30
+#     )
 
-    res = requests.post(
-        HF_API_URL,
-        json=payload,
-        timeout=30
-    )
+#     if res.status_code != 200:
+#         raise Exception(f"HF Error {res.status_code}: {res.text}")
 
-    if res.status_code != 200:
-        raise Exception(f"HF Error {res.status_code}: {res.text}")
+#     result = res.json()
 
-    result = res.json()
-
-    return result["data"][0]
+#     return result["data"][0]
 
 
 # -------------------------------

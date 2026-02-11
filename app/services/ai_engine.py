@@ -27,7 +27,7 @@ async def analyze_with_ai(text: str) -> dict:
     """
 
     response = client.chat.completions.create(
-        model="gpt-4.1-mini",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You detect scams and fake news."},
             {"role": "user", "content": prompt}

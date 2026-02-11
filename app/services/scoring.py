@@ -4,6 +4,12 @@ def calculate_risk(ai_text, vt, url_ai):
 
     score = 0
     reasons = []
+    if vt is None:
+        vt = {
+            "malicious": 0,
+            "suspicious": 0,
+            "harmless": 1
+        }
 
     if ai_text.get("label") == "Scam":
         score += 4
