@@ -23,7 +23,7 @@ def analyze_url_hf(url: str):
             url,
             api_name="/predict"   # ✅ FIXED
         )
-        print(result,"----result")
+        # print(result,"----result")
         return result
 
     except Exception as e:
