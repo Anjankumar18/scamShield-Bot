@@ -202,18 +202,25 @@ async def whatsapp_webhook(request: Request):
         resp = MessagingResponse()
 
         reasons_text = ""
+        reasons_block = ""
+        print(final_risk,"----")
+        
+        if final_risk.get("reasons"):
 
-        if final_risk["reasons"]:
-            reasons_text = "\n- " + "\n- ".join(final_risk["reasons"])
+            if len(final_risk["reasons"]) > 0:
 
+                reasons_list = "\n- " + "\n- ".join(final_risk["reasons"])
+
+                reasons_block = f"""
+
+🔍 Reasons:{reasons_list}
+"""
 
         reply_text = f"""
 🛡️ ScamShield AI
 
 📊 Risk Level: {final_risk['risk']}
-📈 Score: {final_risk['score']}
-
-🔍 Reasons:{reasons_text}
+📈 Score: {final_risk['score']}{reasons_block}
 
 ⚠️ Always verify before clicking links.
 Stay safe!

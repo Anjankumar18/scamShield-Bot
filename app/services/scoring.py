@@ -4,18 +4,18 @@ def calculate_risk(ai_text, vt, url_ai, domain_age=None, rules=None, known_scam=
     reasons = []
 
     # -------- Text AI --------
-    if ai_text and ai_text.get("is_scam"):
+    if ai_text and ai_text.get("is_scam") == True:
         score += 3
         reasons.append("AI detected scam language")
 
-    print(ai_text,"---ai_text")
+    # print(ai_text,"---ai_text")
 
     # -------- URL AI --------
     if url_ai and url_ai.get("is_scam"):
         score += 3
         reasons.append("AI flagged domain")
 
-    print(url_ai,"----url_ai--")
+    # print(url_ai,"----url_ai--")
 
     # -------- VirusTotal --------
     if vt:
@@ -27,7 +27,7 @@ def calculate_risk(ai_text, vt, url_ai, domain_age=None, rules=None, known_scam=
             score += 2
             reasons.append("VirusTotal: suspicious")
 
-    print(vt,"----vt--")
+    # print(vt,"----vt--")
 
     # -------- Domain Age --------
     if domain_age is not None:
@@ -40,7 +40,7 @@ def calculate_risk(ai_text, vt, url_ai, domain_age=None, rules=None, known_scam=
             score += 2
             reasons.append("Recently registered domain")
 
-    print(domain_age,"----domain_age--")
+    # print(domain_age,"----domain_age--")
 
     # -------- Rules --------
     if rules and len(rules) > 0:
