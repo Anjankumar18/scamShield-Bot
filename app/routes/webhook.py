@@ -201,9 +201,8 @@ async def whatsapp_webhook(request: Request):
 
         resp = MessagingResponse()
 
-        reasons_text = ""
         reasons_block = ""
-        print(final_risk,"----")
+        # print(final_risk,"----")
         
         if final_risk.get("reasons"):
 
